@@ -19,11 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 180);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 360);
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
