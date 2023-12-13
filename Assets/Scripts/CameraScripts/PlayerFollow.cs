@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFollow : MonoBehaviour
 {
     public Transform target;
-    public float smoothTime = 0.2f; 
+    public float smoothTime = 0.5f; 
 
     private Vector3 velocity = Vector3.zero;
 

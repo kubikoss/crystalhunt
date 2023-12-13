@@ -15,12 +15,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("Damage taken");
         if (health <= 0)
         {
             Destroy(gameObject);
         }
     }
-
 }
 

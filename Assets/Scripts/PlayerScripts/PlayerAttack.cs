@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -19,10 +17,14 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 timeBtwAttack = startTimeBtwAttack;
+
+                //detekovani enemies v player range
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
+                    //udeleni damage jednotlivemu enemy, ktery player poskodi
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    Debug.Log(enemiesToDamage[i].GetComponent<Enemy>().health);
                 }
             }
         }
