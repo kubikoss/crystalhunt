@@ -17,14 +17,17 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (!PauseMenu.gameIsPaused)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }  
     }
 
     private void FixedUpdate()
