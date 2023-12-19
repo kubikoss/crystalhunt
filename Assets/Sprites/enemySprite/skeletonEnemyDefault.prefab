@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1591814784729615290}
   - component: {fileID: 645422018525672386}
   - component: {fileID: 8935111540748575609}
+  - component: {fileID: 8178101959067430785}
   m_Layer: 6
   m_Name: skeletonEnemyDefault
   m_TagString: Untagged
@@ -125,3 +126,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 120
+--- !u!114 &8178101959067430785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091531151971823041}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 573658188936609793, guid: 426c2a9a2effd464da4c31db17fdad90, type: 3}
+  moveSpeed: 3
+  detectionRange: 3
+  patrolDistance: 2
