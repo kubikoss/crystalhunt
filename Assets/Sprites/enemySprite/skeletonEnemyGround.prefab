@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 279190924182904874}
   - component: {fileID: 1944447971161112540}
-  - component: {fileID: 5029239514496665520}
-  - component: {fileID: 3505955019021380567}
+  - component: {fileID: 3078646835788947314}
+  - component: {fileID: 8010960139904022836}
+  - component: {fileID: 5181030394381972683}
   m_Layer: 6
   m_Name: skeletonEnemyGround
   m_TagString: Untagged
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5029239514496665520
+--- !u!114 &3078646835788947314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +100,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 120
---- !u!61 &3505955019021380567
+--- !u!114 &8010960139904022836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605292985523113932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  detectionRange: 5
+  patrolDistance: 2
+--- !u!61 &5181030394381972683
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +125,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

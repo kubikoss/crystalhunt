@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3049626414134103569}
   - component: {fileID: 226287933044140903}
-  - component: {fileID: 1627017894191073575}
-  - component: {fileID: 564261556622092983}
+  - component: {fileID: -2219251935341815137}
+  - component: {fileID: -5267601886584306241}
+  - component: {fileID: 3208764655251588250}
   m_Layer: 6
   m_Name: skeletonEnemyDarkPowerpdn
   m_TagString: Untagged
@@ -86,20 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1627017894191073575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8057098715706264397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08b9779e31248c746b1d1ebef908244a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 120
---- !u!61 &564261556622092983
+--- !u!61 &-2219251935341815137
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -125,3 +113,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 3.84}
   m_EdgeRadius: 0
+--- !u!114 &-5267601886584306241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057098715706264397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b9779e31248c746b1d1ebef908244a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 120
+--- !u!114 &3208764655251588250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057098715706264397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  detectionRange: 5
+  patrolDistance: 2

@@ -1,12 +1,14 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Enemy))]
 public class AImovement : MonoBehaviour
 {
-    public Transform player;
     public float moveSpeed = 3.0f;
     public float detectionRange = 5.0f;
     public float patrolDistance = 2.0f;
 
+    Transform player;
     private Vector2 initialPosition;
     private Vector2 targetPosition;
     private bool canChase = false;
@@ -17,27 +19,18 @@ public class AImovement : MonoBehaviour
     {
         initialPosition = transform.position;
         targetPosition = initialPosition;
+        player = GameManager.GameManagerInstance.PlayerTransform;
     }
 
     void Update()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= detectionRange)
-        {
-            canChase = true;
-        }
-        else if (canChase)
-        { 
-            Debug.Log(detectionRange);
+        if (distanceToPlayer <= detectionRange || canChase)
             MoveTowardsTarget();
-        }
         else
-        {
             Patrol();
-        }
     }
-
     void Patrol()
     {
         //enemy se hybe zprava doleva, dokud hrac neni v range
@@ -47,10 +40,12 @@ public class AImovement : MonoBehaviour
         if (isPatrollingRight)
         {
             targetPosition = rightPatrolPosition;
+            transform.localScale = new Vector3(-1,1,1);
         }
         else
         {
             targetPosition = leftPatrolPosition;
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -65,9 +60,16 @@ public class AImovement : MonoBehaviour
 
     void MoveTowardsTarget()
     {
-        Debug.Log("k hracovi");
         //enemy se bude "nalepovat" na hrace
-        targetPosition = player.position;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        canChase = true;
+        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        if (player.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }
