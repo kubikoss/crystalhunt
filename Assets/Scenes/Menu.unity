@@ -1668,6 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 72c15f9f936e17549b13c74247f6e2b4, type: 2}
   resolutionDropdown: {fileID: 1504682784}
+  graphicsDropdown: {fileID: 1289387447}
 --- !u!1 &568839661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,11 +2650,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: HIGH
+    - m_Text: LOW
       m_Image: {fileID: 0}
     - m_Text: MEDIUM
       m_Image: {fileID: 0}
-    - m_Text: LOW
+    - m_Text: HIGH
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

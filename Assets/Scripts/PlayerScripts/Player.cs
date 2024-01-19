@@ -11,29 +11,23 @@ public class Player : MonoBehaviour
 
     public HealthBar healthBar;
 
-    // Start is called before the first frame update
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-            if (currHealth <= 0)
-            {
-                SceneManager.LoadScene("SampleScene");
-            }
-        }*/
-    }
-
-    /*private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currHealth -= damage;
         healthBar.SetHealth(currHealth);
-    }*/
+    }
+
+    public void isPlayerDead()
+    {
+        if (currHealth <= 0)
+        {
+            SceneManager.LoadScene("Game");
+        }
+    }
 }

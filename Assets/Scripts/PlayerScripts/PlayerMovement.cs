@@ -7,8 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float moveSpeed = 5f;
 
+    public float KBForce;
+    public float KBCounter;
+    public float KBTotalTime;
+
+    public bool knockFromRight;
+
     [SerializeField]
     public Rigidbody2D rb;
+    [SerializeField]
+    private Animator anim;
 
     Vector2 movement;
     
@@ -19,13 +27,37 @@ public class PlayerMovement : MonoBehaviour
 
         if (!PauseMenu.gameIsPaused)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (KBCounter <= 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else if (Input.GetKeyDown(KeyCode.D))
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+
+                if (movement.magnitude != 0)
+                {
+                    anim.SetTrigger("walking");
+                }
+                else
+                {
+                    anim.SetTrigger("idle");
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                if (knockFromRight == true)
+                {
+                    movement.x = -KBForce;
+                }
+                if (knockFromRight == false)
+                {
+                    movement.x = KBForce;
+                }
+                KBCounter -= Time.deltaTime;
             }
         }  
     }

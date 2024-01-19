@@ -5,12 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
+    [SerializeField]
 
-    // Update is called once per frame
-    void Update()
+    /*Player _player;
+
+    private void Start()
     {
-        
-    }
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }*/
 
     public void TakeDamage(int damage)
     {
@@ -20,5 +22,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
 

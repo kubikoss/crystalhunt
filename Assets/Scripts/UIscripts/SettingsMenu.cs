@@ -9,12 +9,14 @@ public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
-
+    public TMP_Dropdown graphicsDropdown;
     Resolution[] resolutions;
     
     //zjisteni vsech dostupnych rozliseni
     private void Start()
     {
+        QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("graphics"));
+        graphicsDropdown.value = PlayerPrefs.GetInt("graphics");
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
@@ -53,6 +55,7 @@ public class SettingsMenu : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("graphics", qualityIndex);
     }
 
     public void SetFullscreen(bool isFullscreen)
