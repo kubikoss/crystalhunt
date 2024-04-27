@@ -1,70 +1,88 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    [SerializeField]
-    float moveSpeed = 5f;
-
-    public float KBForce;
-    public float KBCounter;
-    public float KBTotalTime;
-
-    public bool knockFromRight;
-
-    [SerializeField]
-    public Rigidbody2D rb;
-    [SerializeField]
-    private Animator anim;
-
-    Vector2 movement;
-    
-    void Update()
+    public class PlayerMovement : MonoBehaviour
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        [SerializeField]
+        float moveSpeed = 5f;
 
-        if (!PauseMenu.gameIsPaused)
+        public float KBForce;
+        public float KBCounter;
+        public float KBTotalTime;
+
+        public bool knockFromRight;
+
+        [SerializeField]
+        public Rigidbody2D rb;
+        [SerializeField]
+        private Animator anim;
+
+        GameObject levelUpMenuUI;
+        CanvasGroup canvasGroup;
+
+        Vector2 movement;
+
+        void Start()
         {
-            if (KBCounter <= 0)
+            levelUpMenuUI = GameObject.FindGameObjectWithTag("LevelUI");
+            canvasGroup = levelUpMenuUI.GetComponent<CanvasGroup>();
+        }
+
+        void Update()
+        {
+            if (PauseMenu.gameIsPaused == false)
             {
-                if (Input.GetKeyDown(KeyCode.A))
+                if (canvasGroup.alpha == 0f)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    Time.timeScale = 1f;
                 }
-                else if (Input.GetKeyDown(KeyCode.D))
+                else if (canvasGroup.alpha == 1f)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    Time.timeScale = 0f;
                 }
 
-                if (movement.magnitude != 0)
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
+
+                if (KBCounter <= 0)
                 {
-                    anim.SetTrigger("walking");
+                    if (Input.GetKeyDown(KeyCode.A))
+                    {
+                        transform.localScale = new Vector3(-1, 1, 1);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.D))
+                    {
+                        transform.localScale = new Vector3(1, 1, 1);
+                    }
+
+                    if (movement.magnitude != 0)
+                    {
+                        anim.SetTrigger("walking");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("idle");
+                    }
                 }
                 else
                 {
-                    anim.SetTrigger("idle");
+                    if (knockFromRight == true)
+                    {
+                        movement.x = -KBForce;
+                    }
+                    if (knockFromRight == false)
+                    {
+                        movement.x = KBForce;
+                    }
+                    KBCounter -= Time.deltaTime;
                 }
-            }
-            else
-            {
-                if (knockFromRight == true)
-                {
-                    movement.x = -KBForce;
-                }
-                if (knockFromRight == false)
-                {
-                    movement.x = KBForce;
-                }
-                KBCounter -= Time.deltaTime;
-            }
-        }  
-    }
+            }  
+        }
 
-    private void FixedUpdate()
-    {
-        movement.Normalize();
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        private void FixedUpdate()
+        {
+            movement.Normalize();
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
     }
-}

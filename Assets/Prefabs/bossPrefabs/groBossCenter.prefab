@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571944058172523272}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6104399, w: 0.7920626}
+  m_LocalRotation: {x: -0, y: -0, z: -0.026616566, w: 0.99964577}
   m_LocalPosition: {x: 0.939, y: 0.047, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3345778961227330917}
   m_LocalRotation: {x: -0, y: -0, z: 0.999797, w: 0.020148126}
-  m_LocalPosition: {x: -2.2266974, y: -2.1395388, z: -0.09746852}
+  m_LocalPosition: {x: -3.7043996, y: 2.1359468, z: -0.09746852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -213,6 +213,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
+  addPlayerLives: 5
+  xp: 0
+  addPlayerXp: 100
+  _player: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &3519022087359437258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,12 +311,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5745641183034190225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8653719598885068355, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Name
-      value: groundBoss
+      value: groundBossa
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Layer
@@ -875,7 +880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -485990856666115531, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.14561379
+      value: 0.7005226
       objectReference: {fileID: 0}
     - target: {fileID: -485990856666115531, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_LocalRotation.x
@@ -887,7 +892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -485990856666115531, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.98934156
+      value: 0.7136303
       objectReference: {fileID: 0}
     - target: {fileID: -485990856666115531, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -939,7 +944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2319998805419544334, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.025003076
+      value: -0.02500306
       objectReference: {fileID: 0}
     - target: {fileID: 2471920254983572574, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_LocalRotation.w
@@ -983,11 +988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6025663400909485361, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.009670138
+      value: 0.13967001
       objectReference: {fileID: 0}
     - target: {fileID: 6025663400909485361, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.011195302
+      value: 0.10880482
       objectReference: {fileID: 0}
     - target: {fileID: 6025663400909485361, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Extent.x
@@ -1007,19 +1012,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839759935224386812, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.5432296
+      value: -0.12150031
       objectReference: {fileID: 0}
     - target: {fileID: 7839759935224386812, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.6989403
+      value: 0.01662147
       objectReference: {fileID: 0}
     - target: {fileID: 7839759935224386812, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.35608366
+      value: 0.6778647
       objectReference: {fileID: 0}
     - target: {fileID: 7839759935224386812, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.66788507
+      value: 0.25419614
       objectReference: {fileID: 0}
     - target: {fileID: 7903524719403815672, guid: 7fc9b5284e4d6dc49a4274df3bf0eb28, type: 3}
       propertyPath: m_Layer

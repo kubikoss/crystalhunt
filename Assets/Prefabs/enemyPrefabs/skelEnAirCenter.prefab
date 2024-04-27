@@ -211,7 +211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b9779e31248c746b1d1ebef908244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 120
+  health: 100
+  addPlayerLives: 10
+  xp: 0
+  addPlayerXp: 10
+  level: 0
+  _player: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &4241351020754767877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  detectionRange: 3
+  detectionRange: 6
   patrolDistance: 2
 --- !u!114 &4644108047784552447
 MonoBehaviour:
@@ -310,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0
-  damage: 10
+  damage: 11
   playerMovement: {fileID: 0}
   anim: {fileID: 7630818309001839603}
 --- !u!60 &833318072694907117

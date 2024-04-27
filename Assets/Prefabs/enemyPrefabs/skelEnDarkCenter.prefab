@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 8586168269668052088}
   - component: {fileID: 3354503888652360601}
   - component: {fileID: 2567473024833378797}
+  - component: {fileID: -3590598274361494769}
   m_Layer: 6
   m_Name: skelEnDarkCenter
   m_TagString: Untagged
@@ -213,7 +214,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b9779e31248c746b1d1ebef908244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 120
+  health: 180
+  addPlayerLives: 10
+  xp: 0
+  addPlayerXp: 10
+  level: 0
+  _player: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &2514021368564866407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  detectionRange: 3
+  detectionRange: 6
   patrolDistance: 2
 --- !u!114 &5445613642544022921
 MonoBehaviour:
@@ -310,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0
-  damage: 10
+  damage: 15
   playerMovement: {fileID: 0}
   anim: {fileID: 4743534330802465388}
 --- !u!60 &2567473024833378797
@@ -356,6 +363,19 @@ PolygonCollider2D:
       - {x: 0.24984598, y: -0.1941269}
       - {x: 0.6399636, y: -0.18767405}
       - {x: 0.25487185, y: 0.123367906}
+--- !u!114 &-3590598274361494769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169597798838313816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5701835c233d8bf44b6ee98fecef0ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItem: {fileID: 0}
 --- !u!1 &3351096606715208439
 GameObject:
   m_ObjectHideFlags: 0

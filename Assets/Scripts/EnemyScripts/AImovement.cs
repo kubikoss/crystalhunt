@@ -7,9 +7,12 @@ using UnityEngine;
 
 public class AImovement : MonoBehaviour
 {
-    public float moveSpeed = 3.0f;
-    public float detectionRange = 5.0f;
-    public float patrolDistance = 2.0f;
+    [SerializeField]
+    float moveSpeed = 3f;
+    [SerializeField]
+    float detectionRange = 5f;
+    [SerializeField]
+    float patrolDistance = 2f;
 
     Transform player;
     private Vector2 initialPosition;
@@ -28,7 +31,6 @@ public class AImovement : MonoBehaviour
     void Update()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
         if (distanceToPlayer <= detectionRange || canChase)
         {
             MoveTowardsTarget();

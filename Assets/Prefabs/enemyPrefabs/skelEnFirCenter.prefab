@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 7935484279162824735}
   m_Layer: 6
   m_Name: skelEnFirCenter
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +338,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 120
+  addPlayerLives: 10
+  xp: 0
+  addPlayerXp: 10
+  _player: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &5438181312541553849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  detectionRange: 3
+  detectionRange: 6
   patrolDistance: 2
 --- !u!114 &6466892540151585481
 MonoBehaviour:
@@ -434,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0
-  damage: 10
+  damage: 13
   playerMovement: {fileID: 0}
   anim: {fileID: -7746200332450163110}
 --- !u!60 &7935484279162824735

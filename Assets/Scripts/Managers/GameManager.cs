@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform _playerTransform;
     public Transform PlayerTransform => _playerTransform;
 
+    [SerializeField] public Player _Player;
+
     private GameManager() { }
     private void Awake()
     {

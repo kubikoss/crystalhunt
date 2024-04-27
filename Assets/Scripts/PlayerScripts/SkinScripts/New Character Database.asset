@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e75cd98d772e184eb5324750c545b44, type: 3}
+  m_Name: New Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characterName: Default Skin
+    characterObject: {fileID: -8653719598885068355, guid: 483a5dfce9017ae4589db10d4e7585f3, type: 3}
+  - characterName: Air Skin
+    characterObject: {fileID: -8653719598885068355, guid: df846ab7430bb4c4a8069c795b9884ce, type: 3}
+  - characterName: Water Skin
+    characterObject: {fileID: -8653719598885068355, guid: 2fe15a6536b407c4aa4709e507c93f7d, type: 3}
+  - characterName: Fire Skin
+    characterObject: {fileID: -8653719598885068355, guid: 7653cedeef589b64cb338f89b6165d12, type: 3}
+  - characterName: Rock Skin
+    characterObject: {fileID: -8653719598885068355, guid: 32ce5fe2ec992cd41a32486f6e982057, type: 3}
+  - characterName: Dark Power Skin
+    characterObject: {fileID: -8653719598885068355, guid: b1751434b9fdd284985994ab3a554554, type: 3}

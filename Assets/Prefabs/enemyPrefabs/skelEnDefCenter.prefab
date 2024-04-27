@@ -279,7 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b9779e31248c746b1d1ebef908244a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 120
+  health: 80
+  addPlayerLives: 10
+  _player: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &4460986974433601264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  detectionRange: 3
+  moveSpeed: 4
+  detectionRange: 6
   patrolDistance: 2
 --- !u!114 &6698099977971373170
 MonoBehaviour:

@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out _player) && canAttack == true)
         {
-            anim.SetTrigger("attack");
+            //anim.SetTrigger("attack");
 
             playerMovement.KBCounter = playerMovement.KBTotalTime;
             if (_player.transform.position.x <= transform.position.x)
