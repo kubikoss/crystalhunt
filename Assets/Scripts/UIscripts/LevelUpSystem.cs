@@ -7,7 +7,7 @@ public class LevelUpSystem : MonoBehaviour
     [SerializeField]
     GameObject levelUpMenuUI;
 
-    int addMaxHealth = 20;
+    int addHealth = 20;
     int addDamage = 5;
     int addDefence = 5;
 
@@ -15,6 +15,8 @@ public class LevelUpSystem : MonoBehaviour
     PlayerAttack pA;
     CanvasGroup canvasGroup;
     AchievementManager achievementManager;
+    ArrowCollider arrowCollider;
+    public AudioController audioController;
 
     void Start()
     {
@@ -22,30 +24,37 @@ public class LevelUpSystem : MonoBehaviour
         _player = FindObjectOfType<Player>();
         canvasGroup = levelUpMenuUI.GetComponent<CanvasGroup>();
         achievementManager = FindObjectOfType<AchievementManager>();
+        arrowCollider = FindObjectOfType<ArrowCollider>();
     }
 
     public void AddDamage()
     {
         pA.damage += addDamage;
+        arrowCollider.arrowDamage += addDamage;
         if (pA.damage == 50)
         {
             achievementManager.UnlockAchievement("Force Unleashed");
             //PlayerPrefs.SetInt("ForceUnleashedUnlocked", 1);
         }
+        audioController.PlayLevelUpSound();
         _player.DisablePanel();
-        Debug.Log(pA.damage);
+        _player.LevelUp();
+        //Debug.Log(pA.damage);
     }
     public void AddLives()
     {
-        _player.maxHealth += addMaxHealth;
+        _player.currHealth += addHealth;
+        _player.maxHealth += addHealth;
         canvasGroup.alpha = 0f;
         if (_player.maxHealth == 200)
         {
             achievementManager.UnlockAchievement("Resilience Fortified");
             //PlayerPrefs.SetInt("ResilienceFortifiedUnlocked", 1);
         }
+        audioController.PlayLevelUpSound();
         _player.DisablePanel();
-        Debug.Log(_player.maxHealth);
+        _player.LevelUp();
+        //Debug.Log(_player.maxHealth);
     }
 
     public void AddDefence()
@@ -57,7 +66,9 @@ public class LevelUpSystem : MonoBehaviour
             achievementManager.UnlockAchievement("Guardian's Shield");
             //PlayerPrefs.SetInt("GuardiandsShieldUnlocked", 1);
         }
+        audioController.PlayLevelUpSound();
         _player.DisablePanel();
-        Debug.Log(_player.defence);
+        _player.LevelUp();
+        //Debug.Log(_player.defence);
     }
 }

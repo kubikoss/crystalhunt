@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8495391912827818945}
   - component: {fileID: 1366592582533625678}
-  - component: {fileID: -1790186824559600175}
   - component: {fileID: 2676146987050596354}
+  - component: {fileID: 8134442078985734950}
   m_Layer: 0
   m_Name: darkPowerCrystal
   m_TagString: Untagged
@@ -86,8 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-1790186824559600175
-BoxCollider2D:
+--- !u!114 &2676146987050596354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017947799030764768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bf627081f36c7459919fb524e8a07f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &8134442078985734950
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,18 +121,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.21}
-  m_EdgeRadius: 0
---- !u!114 &2676146987050596354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7017947799030764768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2bf627081f36c7459919fb524e8a07f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Points:
+    m_Paths:
+    - - {x: 0.04, y: 0.465}
+      - {x: -0.39999998, y: 0.024999999}
+      - {x: -0.39999998, y: 0.015}
+      - {x: 0.04, y: -0.42499998}
+      - {x: 0.049999997, y: -0.42499998}
+      - {x: 0.48999998, y: 0.015}
+      - {x: 0.48999998, y: 0.024999999}
+      - {x: 0.049999997, y: 0.465}

@@ -7,6 +7,7 @@ public class CollectingCrystal : MonoBehaviour
     static int collectedCrystal = 0;
 
     AchievementManager achievementManager;
+    AudioController audioController;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class CollectingCrystal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            audioController.PlayCollectSound();
             collectedCrystal++;
             Debug.Log(collectedCrystal);
             Destroy(gameObject);

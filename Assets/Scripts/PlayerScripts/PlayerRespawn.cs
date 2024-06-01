@@ -14,6 +14,6 @@ public class PlayerRespawn : MonoBehaviour
     public void Respawn()
     {
         Player.respawnLives--;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Story Mode");
     }
 }

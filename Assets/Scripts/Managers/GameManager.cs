@@ -10,7 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform _playerTransform;
     public Transform PlayerTransform => _playerTransform;
 
+    [SerializeField] Transform _player2Transform;
+    public Transform Player2Transform => _player2Transform;
+
     [SerializeField] public Player _Player;
+
+    [SerializeField] public Player _Player2;
 
     private GameManager() { }
     private void Awake()

@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d2c3da6bd4ea68a428cc2cc92571bf10
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Story Mode.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Infinite World.unity
+    guid: 02922d331e97df44887bc4ad63a49ddc
   - enabled: 1
     path: Assets/Scenes/Lost.unity
     guid: 15d69988936d6fe4581e8504599dd68c

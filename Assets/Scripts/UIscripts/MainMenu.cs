@@ -5,12 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    [SerializeField]
+    GameObject blud;
+    private void Start()
     {
-        SceneManager.LoadScene("Game");
-        Time.timeScale = 1;
     }
-
+    public void ShowBlud()
+    {
+        if (blud.gameObject.CompareTag("Player"))
+        {
+            blud.SetActive(true);
+        }
+    }
+    public void HideBlud()
+    {
+        if (blud.gameObject.CompareTag("Player"))
+        {
+            blud.SetActive(false);
+        }
+    }
     public void QuitGame()
     {
         Application.Quit();

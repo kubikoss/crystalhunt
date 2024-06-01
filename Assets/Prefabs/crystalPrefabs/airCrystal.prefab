@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5587432237646180290}
   - component: {fileID: 5953311552077631326}
   - component: {fileID: 8290924303502771319}
-  - component: {fileID: 4317781343513598906}
+  - component: {fileID: -3997287761231684238}
   m_Layer: 0
   m_Name: airCrystal
   m_TagString: Untagged
@@ -98,9 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bf627081f36c7459919fb524e8a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectedCrystal: 0
---- !u!61 &4317781343513598906
-BoxCollider2D:
+--- !u!60 &-3997287761231684238
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,6 +121,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.21}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.04, y: 0.465}
+      - {x: -0.39999998, y: 0.024999999}
+      - {x: -0.39999998, y: 0.015}
+      - {x: 0.04, y: -0.42499998}
+      - {x: 0.049999997, y: -0.42499998}
+      - {x: 0.48999998, y: 0.015}
+      - {x: 0.48999998, y: 0.024999999}
+      - {x: 0.049999997, y: 0.465}

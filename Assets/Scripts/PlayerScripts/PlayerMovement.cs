@@ -5,7 +5,7 @@
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField]
-        float moveSpeed = 5f;
+        public float moveSpeed = 6f;
 
         public float KBForce;
         public float KBCounter;
@@ -20,6 +20,7 @@
 
         GameObject levelUpMenuUI;
         CanvasGroup canvasGroup;
+        public AudioController audioController;
 
         Vector2 movement;
 
@@ -31,7 +32,7 @@
 
         void Update()
         {
-            if (PauseMenu.gameIsPaused == false)
+            if (PauseMenu.gameIsPaused == false || Time.timeScale != 0f)
             {
                 if (canvasGroup.alpha == 0f)
                 {
@@ -59,6 +60,7 @@
                     if (movement.magnitude != 0)
                     {
                         anim.SetTrigger("walking");
+                        //audioController.PlayPlayerWalkingSound();
                     }
                     else
                     {

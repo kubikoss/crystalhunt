@@ -8,17 +8,21 @@ using UnityEngine;
 public class AImovement : MonoBehaviour
 {
     [SerializeField]
-    float moveSpeed = 3f;
+    float moveSpeed = 5f;
     [SerializeField]
     float detectionRange = 5f;
     [SerializeField]
     float patrolDistance = 2f;
 
     Transform player;
+    Transform player2;
+    switching switching;
+    float distanceToPlayer;
+
     private Vector2 initialPosition;
     private Vector2 targetPosition;
 
-    private bool canChase = false;
+    public bool canChase = false;
     private bool isPatrollingRight = true;
 
     void Start()
@@ -26,11 +30,23 @@ public class AImovement : MonoBehaviour
         initialPosition = transform.position;
         targetPosition = initialPosition;
         player = GameManager.GameManagerInstance.PlayerTransform;
+        player2 = GameManager.GameManagerInstance.Player2Transform;
+        switching = FindObjectOfType<switching>();
+        //enemy = GetComponent<Enemy>();
+        //initialHealth = GetComponent<Enemy>().health;
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        //Debug.Log(enemy.health);
+        if (switching.playerWithSword.activeSelf)
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        }
+        else if (switching.playerWithBow.activeSelf)
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, player2.position);
+        }
         if (distanceToPlayer <= detectionRange || canChase)
         {
             MoveTowardsTarget();
@@ -44,6 +60,7 @@ public class AImovement : MonoBehaviour
 
     void Patrol()
     {
+        moveSpeed = 3f;
         //enemy se hybe zprava doleva, dokud hrac neni v range
         Vector2 leftPatrolPosition = initialPosition - Vector2.right * patrolDistance;
         Vector2 rightPatrolPosition = initialPosition + Vector2.right * patrolDistance;
@@ -67,18 +84,45 @@ public class AImovement : MonoBehaviour
         }
     }
 
-    void MoveTowardsTarget()
+    public void MoveTowardsTarget()
     {
+        moveSpeed = 4f;
         //enemy se bude "nalepovat" na hrace
         canChase = true;
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-        if (player.position.x > transform.position.x)
+        if (switching.playerWithSword.activeSelf)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+
+            if (player.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if (switching.playerWithBow.activeSelf)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player2.position, moveSpeed * Time.deltaTime);
+
+            if (player2.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        //transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        /*if (player.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
-        }
+        }*/
     }
 }

@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 250
-  addPlayerLives: 5
-  xp: 0
-  addPlayerXp: 100
+  addPlayerLives: 20
+  addXp: 100
+  level: 0
   _player: {fileID: 0}
   healthbar: {fileID: 0}
 --- !u!114 &8170529464670944913

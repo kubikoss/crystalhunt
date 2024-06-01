@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: -3590598274361494769}
   m_Layer: 6
   m_Name: skelEnDarkCenter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,8 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 180
   addPlayerLives: 10
-  xp: 0
-  addPlayerXp: 10
+  addXp: 40
   level: 0
   _player: {fileID: 0}
   healthbar: {fileID: 0}
@@ -233,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   detectionRange: 6
   patrolDistance: 2
 --- !u!114 &5445613642544022921

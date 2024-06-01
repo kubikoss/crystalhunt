@@ -4,6 +4,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] 
     Transform _player;
+    [SerializeField]
+    Transform _player2;
+    switching switching;
     AchievementManager achievementManager;
     UnlockAchievement unlockAchievement;
     public GameObject enemyPrefab;
@@ -19,20 +22,28 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] 
     float maxTimeBtwSpawn;
     float timeBtwSpawn;
+    float distanceToPlayer;
 
-    [SerializeField] 
-    bool spawnBoss = false;
+    bool canSpawn = true;
 
     void Start()
     {
         timeBtwSpawn = maxTimeBtwSpawn;
         achievementManager = FindObjectOfType<AchievementManager>();
         unlockAchievement = FindObjectOfType<UnlockAchievement>();
+        switching = FindObjectOfType<switching>();
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+        if (switching.playerWithSword.activeSelf)
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+        }
+        else if (switching.playerWithBow.activeSelf)
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, _player2.position);
+        }
 
         if (timeBtwSpawn <= 0)
         {
@@ -48,10 +59,9 @@ public class EnemySpawner : MonoBehaviour
             timeBtwSpawn -= Time.deltaTime;
         }
 
-        if (spawnBoss && enemiesKilled == 3)
+        if (enemiesKilled == 3 && canSpawn)
         {
             SpawnBoss();
-            spawnBoss = false;
         }
     }
 
@@ -67,18 +77,17 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnBoss()
     {
-        Vector3 randomOffset = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
-        Instantiate(bossPrefab, transform.position + randomOffset, Quaternion.identity);
-        //Debug.Log("spawned");
+        if (bossPrefab != null)
+        {
+            Vector3 randomOffset = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+            Instantiate(bossPrefab, transform.position + randomOffset, Quaternion.identity);
+            canSpawn = false;
+        }
     }
 
     public void EnemyDied()
     {
         enemiesKilled++;
-        if (enemiesKilled == 3)
-        {
-            spawnBoss = true;
-        }
         Debug.Log(enemiesKilled);
         switch (enemiesKilled)
         {

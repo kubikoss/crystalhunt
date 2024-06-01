@@ -18,34 +18,30 @@ public class Player : MonoBehaviour
     AchievementManager achievementManager;
     GameObject levelUpMenuUI;
     PlayerRespawn playerRespawn;
-    //private GameManager gameManager;
+    public AudioController audioController;
 
     void Start()
     {
         currHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(currHealth);
         achievementManager = FindObjectOfType<AchievementManager>();
         levelUpMenuUI = GameObject.FindGameObjectWithTag("LevelUI");
         playerRespawn = FindObjectOfType<PlayerRespawn>();
 
         DisablePanel();
-        //gameManager = FindObjectOfType<GameManager>();
-    }
-
-    void Update()
-    {
-        LevelUp();
     }
 
     public void TakeDamage(int damage)
     {
         currHealth = currHealth - damage + defence;
         healthBar.SetHealth(currHealth);
+        //Debug.Log(currHealth);
     }
     public void isPlayerDead()
     {
         if (currHealth <= 0)
         {
+            audioController.PlayPlayerDeathSound();
             playerRespawn.Respawn();
             if (respawnLives == 0)
             {
@@ -53,14 +49,14 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
+
     public void LevelUp()
     {
-        while(xp >= maxXp)
-        {
-            xp -= 100;
-            level++;
+        if (xp >= maxXp)
+        { 
             EnablePanel();
+            xp -= maxXp;
+            level++;
             XPAchievement();
         }
     }
@@ -69,7 +65,6 @@ public class Player : MonoBehaviour
     {
         xp += xpToAdd;
         LevelUp();
-        Debug.Log(xp);
     }
 
     void XPAchievement()

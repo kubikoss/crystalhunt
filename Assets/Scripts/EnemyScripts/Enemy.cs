@@ -9,20 +9,25 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     int addPlayerLives = 5;
 
-    public int addXp = 40;
+    public int addXp = 100;
     public int level = 0;
 
     [SerializeField]
     Player _player;
     [SerializeField]
+    Player _player2;
+    [SerializeField]
     HealthBar healthbar;
-    AchievementManager achievementManager;
     EnemySpawner enemySpawner;
+    switching switching;
+    AudioController audioController;
     private void Start()
     {
         _player = FindObjectOfType<Player>();
+        _player2 = FindObjectOfType<Player>();
         healthbar = FindObjectOfType<HealthBar>();
-        achievementManager = FindObjectOfType<AchievementManager>();
+        switching = FindObjectOfType<switching>();
+        audioController = FindObjectOfType<AudioController>();
     }
 
     public void TakeDamage(int damage)
@@ -30,18 +35,36 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            audioController.PlayEnemyDeathSound();
             if (enemySpawner != null)
             {
                 enemySpawner.EnemyDied();
             }
-            _player.currHealth += addPlayerLives;
-            if (_player.currHealth > _player.maxHealth)
+            if (switching.playerWithSword.activeSelf)
             {
-                _player.currHealth = 100;
+                _player.LevelUp();
+                _player.currHealth += addPlayerLives;
+                if (_player.currHealth > _player.maxHealth)
+                {
+                    _player.currHealth = _player.maxHealth;
+                }
+                GameManager.GameManagerInstance._Player.AddXp(addXp);
+                healthbar.SetHealth(_player.currHealth);
+                Destroy(gameObject, 0.05f);
             }
-            GameManager.GameManagerInstance._Player.AddXp(addXp);
-            healthbar.SetHealth(_player.currHealth);
-            Destroy(gameObject, 0.05f);
+            else if (switching.playerWithBow.activeSelf)
+            {
+                _player2.LevelUp();
+                _player2.currHealth += addPlayerLives;
+                if (_player2.currHealth > _player2.maxHealth)
+                {
+                    _player2.currHealth = _player2.maxHealth;
+                }
+                GameManager.GameManagerInstance._Player2.AddXp(addXp);
+                healthbar.SetHealth(_player2.currHealth);
+                Destroy(gameObject, 0.05f);
+            }
+            
         }
     }
 
