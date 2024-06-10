@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LostScene : MonoBehaviour
 {
@@ -41,5 +42,15 @@ public class LostScene : MonoBehaviour
             defenceText.text = "Defence: " + switching.GetComponent<Player>().defence.ToString();
             enemiesKilledText.text = "Enemies Killed: " + enemySpawner.enemiesKilled.ToString();
         }*/
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

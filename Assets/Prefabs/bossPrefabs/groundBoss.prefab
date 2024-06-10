@@ -1244,7 +1244,7 @@ GameObject:
   - component: {fileID: 6560574365589421118}
   m_Layer: 0
   m_Name: groundBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1352,9 +1352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   addPlayerLives: 5
-  xp: 0
-  addPlayerXp: 100
+  addXp: 100
+  level: 0
   _player: {fileID: 0}
+  _player2: {fileID: 0}
   healthbar: {fileID: 0}
 --- !u!114 &6087994866296826970
 MonoBehaviour:
@@ -1441,9 +1442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  detectionRange: 5
+  moveSpeed: 8
+  detectionRange: 20
   patrolDistance: 2
+  canChase: 0
 --- !u!1 &8494334792173093725
 GameObject:
   m_ObjectHideFlags: 0

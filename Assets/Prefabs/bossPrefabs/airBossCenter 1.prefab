@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -5584240746781256563}
   m_Layer: 6
   m_Name: airBossCenter 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
   addXp: 100
   level: 0
   _player: {fileID: 0}
+  _player2: {fileID: 0}
   healthbar: {fileID: 0}
 --- !u!114 &8170529464670944913
 MonoBehaviour:
@@ -69,9 +70,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  detectionRange: 3
+  moveSpeed: 8
+  detectionRange: 20
   patrolDistance: 2
+  canChase: 0
 --- !u!60 &4989363488440858055
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,7 +160,7 @@ MonoBehaviour:
   startTimeBtwAttack: 0
   damage: 13
   playerMovement: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 4092802331663321121}
 --- !u!95 &4092802331663321121
 Animator:
   serializedVersion: 4

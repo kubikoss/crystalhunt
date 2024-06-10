@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     GameObject blud;
     private void Start()
     {
+
     }
     public void ShowBlud()
     {
@@ -23,6 +24,10 @@ public class MainMenu : MonoBehaviour
         {
             blud.SetActive(false);
         }
+    }
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Menu");
     }
     public void QuitGame()
     {

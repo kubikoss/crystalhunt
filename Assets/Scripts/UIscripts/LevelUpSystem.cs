@@ -8,39 +8,55 @@ public class LevelUpSystem : MonoBehaviour
     GameObject levelUpMenuUI;
 
     int addHealth = 20;
-    int addDamage = 5;
-    int addDefence = 5;
+    int addDamage = 3;
+    int addDefence = 1;
 
     Player _player;
-    PlayerAttack pA;
     CanvasGroup canvasGroup;
     AchievementManager achievementManager;
-    ArrowCollider arrowCollider;
     public AudioController audioController;
+
+    [SerializeField]
+    PlayerAttack swordPlayerAttack;
+    [SerializeField]
+    ArrowCollider bowPlayerAttack;
+    switching switchingScript;
 
     void Start()
     {
-        pA = FindObjectOfType<PlayerAttack>();
         _player = FindObjectOfType<Player>();
         canvasGroup = levelUpMenuUI.GetComponent<CanvasGroup>();
         achievementManager = FindObjectOfType<AchievementManager>();
-        arrowCollider = FindObjectOfType<ArrowCollider>();
+
+        switchingScript= FindObjectOfType<switching>();
+        if (switchingScript != null)
+        {
+            swordPlayerAttack = switchingScript.playerWithSword.GetComponent<PlayerAttack>();
+        }
     }
 
     public void AddDamage()
     {
-        pA.damage += addDamage;
-        arrowCollider.arrowDamage += addDamage;
-        if (pA.damage == 50)
+        if (swordPlayerAttack != null)
         {
-            achievementManager.UnlockAchievement("Force Unleashed");
-            //PlayerPrefs.SetInt("ForceUnleashedUnlocked", 1);
+            swordPlayerAttack.damage += addDamage;
+            if (swordPlayerAttack.damage == 50)
+            {
+                achievementManager.UnlockAchievement("Force Unleashed");
+            }
         }
+
+        ArrowCollider.arrowDamage += addDamage;
+        if (ArrowCollider.arrowDamage == 50)
+        {
+            achievementManager.UnlockAchievement("Archero Champion");
+        }
+
         audioController.PlayLevelUpSound();
         _player.DisablePanel();
         _player.LevelUp();
-        //Debug.Log(pA.damage);
     }
+
     public void AddLives()
     {
         _player.currHealth += addHealth;
@@ -49,12 +65,10 @@ public class LevelUpSystem : MonoBehaviour
         if (_player.maxHealth == 200)
         {
             achievementManager.UnlockAchievement("Resilience Fortified");
-            //PlayerPrefs.SetInt("ResilienceFortifiedUnlocked", 1);
         }
         audioController.PlayLevelUpSound();
         _player.DisablePanel();
         _player.LevelUp();
-        //Debug.Log(_player.maxHealth);
     }
 
     public void AddDefence()
@@ -64,11 +78,9 @@ public class LevelUpSystem : MonoBehaviour
         if (_player.defence == 20)
         {
             achievementManager.UnlockAchievement("Guardian's Shield");
-            //PlayerPrefs.SetInt("GuardiandsShieldUnlocked", 1);
         }
         audioController.PlayLevelUpSound();
         _player.DisablePanel();
         _player.LevelUp();
-        //Debug.Log(_player.defence);
     }
 }

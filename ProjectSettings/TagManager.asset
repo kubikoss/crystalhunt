@@ -8,6 +8,11 @@ TagManager:
   - LevelUI
   - PlayerBow
   - PlayerSword
+  - Weapon
+  - SecondCamera
+  - BulletSpawn
+  - Boss
+  - tree
   layers:
   - Default
   - TransparentFX
@@ -42,6 +47,18 @@ TagManager:
   - crystal
   - 
   m_SortingLayers:
+  - name: New Layer 2
+    uniqueID: 4222433231
+    locked: 0
+  - name: Ground
+    uniqueID: 2146148989
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: player
+    uniqueID: 3699284137
+    locked: 0
+  - name: tree
+    uniqueID: 4044946899
     locked: 0

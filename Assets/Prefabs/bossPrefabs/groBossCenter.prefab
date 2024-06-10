@@ -173,9 +173,10 @@ GameObject:
   - component: {fileID: 6755562742875689959}
   - component: {fileID: 1920778732183694398}
   - component: {fileID: 5745641183034190225}
+  - component: {fileID: 7385357429301124719}
   m_Layer: 6
   m_Name: groBossCenter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +218,7 @@ MonoBehaviour:
   addXp: 300
   level: 0
   _player: {fileID: 0}
+  _player2: {fileID: 0}
   healthbar: {fileID: 0}
 --- !u!114 &3519022087359437258
 MonoBehaviour:
@@ -230,9 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97574788986932046a4301d984c6c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 8
   detectionRange: 20
   patrolDistance: 2
+  canChase: 0
 --- !u!114 &1510839572903157252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,9 +333,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0
-  damage: 10
+  damage: 16
   playerMovement: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 1530808855801100936, guid: 30f8b707fbc56484193d4991e16ee41e, type: 3}
+--- !u!95 &7385357429301124719
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3519022087359437256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4581993682977316622
 GameObject:
   m_ObjectHideFlags: 0
